@@ -1,4 +1,6 @@
 package rpc;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +33,8 @@ public class SearchItem extends HttpServlet {
 	private DBConnection conn = DBConnectionFactory.getDBConnection();
 
 	private static final long serialVersionUID = 1L;
-       
+	private static final Logger LOGGER = Logger.getLogger(SearchItem.class.getName());
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,14 +47,27 @@ public class SearchItem extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		
 			throws ServletException, IOException {
-		String userId = request.getParameter("user_id");
+		
+
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("user") == null) {
+//			response.setStatus(403);
+//			return;
+//		}
+
+
+		String userId = "1111";
+	//	String userId = session.getAttribute("user").toString();//8/10
+	//	String userId = request.getParameter("user_id");
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
 
 		// Term can be empty or null.
 		String term = request.getParameter("term");
-		
+		LOGGER.log(Level.INFO, "lat:" + lat + ",lon:" + lon);
+
 		//how to input Username ?  what is term?????????
 		
 		List<Item> items = conn.searchItems(userId, lat, lon, term);//database

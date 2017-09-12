@@ -5,7 +5,7 @@ import db.mongodb.MongoDBConnection;
 import db.mysql.MySQLConnection;
 
 public class DBConnectionFactory {
-	private static final String DEFAULT_DB = "mongodb";
+	private static final String DEFAULT_DB = "mysql";
 
 	// Create a DBConnection based on given db type.
 	public static DBConnection getDBConnection(String db) {

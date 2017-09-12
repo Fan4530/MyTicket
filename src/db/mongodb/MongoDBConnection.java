@@ -148,6 +148,18 @@ public class MongoDBConnection implements DBConnection {
 		return items;
 	}
 
+	@Override
+	public String getFullname(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean verifyLogin(String userId, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
 
 //cd "C:\Program Files\MongoDB\Server\3.4"

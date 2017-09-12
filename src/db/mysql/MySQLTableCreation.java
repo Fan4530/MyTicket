@@ -1,11 +1,4 @@
 package db.mysql;
-//Drop old tables in case they exist.
-//Create tables (users, items, history).
-//Insert rows (a fake user).
-
-
-//DROP TABLE table_name;
-
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -49,7 +42,7 @@ public class MySQLTableCreation {
 			sql = "DROP TABLE IF EXISTS users";
 			stmt.executeUpdate(sql);
 
-			// Step 2. Create new tables. the following is SQL language
+			// Step 2. Create new tables.
 			sql = "CREATE TABLE items " + "(item_id VARCHAR(255) NOT NULL, " + " name VARCHAR(255), "
 					+ "city VARCHAR(255), " + "state VARCHAR(255), " + "country VARCHAR(255), "
 					+ "zipcode VARCHAR(255), " + "rating FLOAT," + "address VARCHAR(255), " + "latitude FLOAT, "
@@ -75,11 +68,11 @@ public class MySQLTableCreation {
 			stmt.executeUpdate(sql);
 
 			// Step 3: insert data
-						// Create a fake user
-						sql = "INSERT INTO users " + "VALUES (\"1111\", \"3229c1097c00d497a0fd282d586be050\", \"John\", \"Smith\")";
+			// Create a fake user
+			sql = "INSERT INTO users " + "VALUES (\"1111\", \"3229c1097c00d497a0fd282d586be050\", \"Zhang\", \"Fan\")";
 
-						System.out.println("Executing query:\n" + sql);
-						stmt.executeUpdate(sql);
+			System.out.println("Executing query:\n" + sql);
+			stmt.executeUpdate(sql);
 
 			System.out.println("Import is done successfully.");
 		} catch (Exception e) {
@@ -87,7 +80,3 @@ public class MySQLTableCreation {
 		}
 	}
 }
-
-
-
-

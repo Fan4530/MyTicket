@@ -36,8 +36,16 @@ public class RecommendItem extends HttpServlet {
    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
-    String userId = request.getParameter("user_id");
+      
+		  throws ServletException, IOException {
+		HttpSession session = request.getSession();
+//		if (session.getAttribute("user") == null) {
+//			response.setStatus(403);
+//			return;
+//		}
+
+		String userId = session.getAttribute("user").toString();
+    //String userId = request.getParameter("user_id");
     double lat = Double.parseDouble(request.getParameter("lat"));
     double lon = Double.parseDouble(request.getParameter("lon"));
     Recommendation recommendation = new GeoRecommendation();
