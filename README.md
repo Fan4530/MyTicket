@@ -1,5 +1,4 @@
-Synopsis
-At the top of the file there should be a short introduction and/ or overview that explains what the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+<h1>Synopsis</h1>
 The main goal of this project is to recommend tickets for users according to Geo-location and like. 
 The architecture of this project is as the following shows:  
       
